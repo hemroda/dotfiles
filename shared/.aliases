@@ -1,0 +1,4 @@
+alias d="cd ~/dotfiles"
+
+# Git 
+alias gp="git push origin main && git push gitlab main"
