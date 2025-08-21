@@ -55,7 +55,8 @@ fi
 # ----------------------------------------------------------------------- #
 
 # Symlinking using to stow
-
+stow shared
+stow zsh
 
 # Optionally restart the shell
 exec "$SHELL" -l
