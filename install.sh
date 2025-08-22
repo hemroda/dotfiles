@@ -55,7 +55,10 @@ fi
 # ----------------------------------------------------------------------- #
 
 # Symlinking using to stow
+stow git
 stow shared
+stow ssh
+stow vim
 stow zsh
 
 # Optionally restart the shell

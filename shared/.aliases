@@ -1,4 +1,15 @@
+# Navigation
 alias d="cd ~/dotfiles"
+alias c="cd ~/DevSecOps/crud-in-the-cloud"
+alias cc="cd ~/DevSecOps/creolecorner"
+alias dso="cd ~/DevSecOps"
+alias hl="cd ~/DevSecOps/homelab"
+alias m="cd ~/DevSecOps/maavita"
+alias ws="cd ~/DevSecOps/workshop"
 
 # Git 
-alias gp="git push origin main && git push gitlab main"
+alias gs="git status"
+alias gaa="git add ."
+
+# System
+alias zsh="source ~/.zshrc"

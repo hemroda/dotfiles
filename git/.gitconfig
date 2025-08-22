@@ -1,0 +1,6 @@
+[user]
+# Please adapt and uncomment the following lines:
+	name = hemroda
+	email = hemroda@dev.com
+[init]
+	defaultBranch = main
