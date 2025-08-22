@@ -55,11 +55,31 @@ fi
 # ----------------------------------------------------------------------- #
 
 # Symlinking using to stow
+stow config
 stow git
 stow shared
 stow ssh
+stow tmux
 stow vim
 stow zsh
+
+# Tmux Plugins
+DEST_DIR="$HOME/.tmux/plugins/tpm"
+
+# Check if the directory exists and if it's empty
+if [ -d "$DEST_DIR" ] && [ -z "$(ls -A "$DEST_DIR")" ]; then
+  # If the directory exists but is empty, then clone
+  echo "Directory $DEST_DIR exists but is empty. Cloning repository."
+  git clone https://github.com/tmux-plugins/tpm "$DEST_DIR"
+elif [ -d "$DEST_DIR" ] && [ ! -z "$(ls -A "$DEST_DIR")" ]; then
+  # If the directory exists and is NOT empty, do nothing
+  echo "Directory $DEST_DIR exists and is not empty. Skipping clone."
+else
+  # If the directory does not exist, clone
+  echo "Directory $DEST_DIR does not exist. Cloning repository."
+  git clone https://github.com/tmux-plugins/tpm "$DEST_DIR"
+fi
+
 
 # Optionally restart the shell
 exec "$SHELL" -l

@@ -1,1 +1,5 @@
 *.swp
+
+# Tmux
+tmux/.tmux/plugins/tpm/*
+config/.config/tmux/plugins/*
