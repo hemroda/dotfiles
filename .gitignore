@@ -1,4 +1,6 @@
+# Vim
 *.swp
+*.swo
 
 # Tmux
 tmux/.tmux/plugins/tpm/*

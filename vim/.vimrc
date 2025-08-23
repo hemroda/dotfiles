@@ -3,6 +3,10 @@ set relativenumber 	" Display relative line numbers
 set clipboard=unnamed   " Global yanking with the OS's clipboard
 set laststatus=2
 
+" =================== Turn Off Swap Files ====================
+set noswapfile
+set nobackup
+set nowb
 
 " Snippets
 augroup markdown_snippets
@@ -14,3 +18,5 @@ augroup markdown_snippets
     " Python code block
     autocmd FileType markdown inoremap <buffer> cbp ```python<CR><CR>```<CR><Up><Up>
 augroup END
+
+
