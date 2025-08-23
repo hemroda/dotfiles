@@ -10,6 +10,7 @@ alias ws="cd ~/DevSecOps/workshop"
 # Git 
 alias gs="git status"
 alias gaa="git add ."
+alias gpb='git push github main && git push gitlab main'
 
 # System
 alias zsh="source ~/.zshrc"
