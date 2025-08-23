@@ -3,6 +3,12 @@ cask "alacritty" # A fast, cross-platform, GPU-accelerated terminal emulator.
 cask "firefox" # A free and open-source web browser.
 cask "firefox@developer-edition" # A version of Firefox with developer tools and features.
 
+cask "discord"
+cask "messenger"
+cask "signal"
+cask "telegram"
+cask "whatsapp"
+
 # CLI Tools
 brew "asdf" # A version manager for multiple language runtimes.
 brew "bash" # A Unix shell and command language.
@@ -20,5 +26,5 @@ brew "tmux" # A terminal multiplexer for managing multiple terminal sessions.
 
 # Fonts
 cask "font-fira-code-nerd-font" # A programming font with ligatures and a high number of glyphs.
-cask "font-monospace-nerd-font" # A monospaced font with additional glyphs and icons.
+cask "font-monaspice-nerd-font" # A monospaced font with additional glyphs and icons.
 cask "font-noto-sans-symbols-2" # A font containing symbols and emojis.
