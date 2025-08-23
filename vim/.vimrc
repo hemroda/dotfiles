@@ -16,6 +16,23 @@ call plug#begin('~/.vim/autoload/plugged')
 
   " Theme
   Plug 'morhetz/gruvbox'
+  Plug 'vim-airline/vim-airline'
+  Plug 'kien/rainbow_parentheses.vim'
+
+  " Search
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+
+
+  " Helpful tools
+  Plug 'tpope/vim-commentary'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'alvan/vim-closetag'
+  Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -124,7 +141,30 @@ set noswapfile
 set nobackup
 set nowb
 
-" Snippets
+
+" ====================== Indentation =========================
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+" Expand tabs to spaces
+set expandtab
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:.
+" Wrap lines at convenient points
+set linebreak
+
+" ================== Backups & temp files =====================
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+set undodir=~/.vim/undo
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Snippets
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup markdown_snippets
     autocmd!
     " Simple code block
@@ -136,3 +176,51 @@ augroup markdown_snippets
 augroup END
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ============================== FZF ==========================
+map <leader>p :Files<CR>
+map <leader>f :GFiles<CR>
+map <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>T :Tags<CR>
+nnoremap <leader>m :Marks<CR>
+
+let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+
+" Make Ripgrep ONLY search file contents and not filenames
+command! -bang -nargs=* Rg
+\ call fzf#vim#grep(
+\   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+\   fzf#vim#with_preview(), <bang>0)
+
+
+" ================== Rainbow Parentheses ====================
+let g:rbpt_colorpairs = [
+      \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_loadcmd_toggle = 0
+" Rainbow Parentheses always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
