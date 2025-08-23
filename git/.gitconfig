@@ -1,6 +1,9 @@
 [user]
-# Please adapt and uncomment the following lines:
-	name = hemroda
-	email = hemroda@dev.com
+	  name = hemroda
+	  email = 16381909+hemroda@users.noreply.github.com
+
 [init]
-	defaultBranch = main
+	  defaultBranch = main
+
+[include]
+    path = .gitconfig-gitlab
